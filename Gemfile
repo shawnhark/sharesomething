@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1.0'
 gem 'node', '~> 0.0.2'
+gem 'haml-rails'
 
 group :test do
   gem "shoulda-matchers"

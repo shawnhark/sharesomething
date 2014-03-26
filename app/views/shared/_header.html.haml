@@ -1,0 +1,21 @@
+%section#top-header.row
+  %h1.col-md-2
+    = link_to "ShareSomething", root_path
+    %ul.col-md-4.clearfix
+      %li Words
+      %li Pics
+      %li Vids
+      %form.col-md-5.for-search(action="")
+        %input.search-query(type="text" placeholder="Search for videos here")
+        %button.btn(type="submit") Search
+    #user_links.pull-right
+      %ul
+        %li.dropdown
+          %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+            Welcome, user
+            %b.caret
+          %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+            %li
+              %a(href="#") Account
+              %a(href="#") Plan and Billing
+              %a(href="#") Sign Out
