@@ -10,8 +10,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1.0'
+gem 'bootstrap_form'
 gem 'node', '~> 0.0.2'
 gem 'haml-rails'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 group :test do
   gem "shoulda-matchers"
