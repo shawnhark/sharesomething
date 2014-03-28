@@ -1,21 +1,34 @@
-%section#navbar-form
-  %h1.col-md-2
-    = link_to "ShareSomething", root_path
-    %ul.col-md-4.clearfix
-      %li Words
-      %li Pics
-      %li Vids
-      %form.col-md-5.for-search(action="")
-        %input.search-query(type="text" placeholder="Search for videos here")
-        %button.btn(type="submit") Search
-    #user_links.pull-right
-      %ul
-        %li.dropdown
-          %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-            Welcome, user
-            %b.caret
-          %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-            %li
-              %a(href="#") Account
-              %a(href="#") Plan and Billing
-              %a(href="#") Sign Out
+%nav.navbar.navbar-inverse{role: "navigation"}
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: root_path} ShareSomething
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.divider-vertical
+        %li
+          %a{href: "#"} Words
+        %li
+          %a{href: "#"} Pics
+        %li
+          %a{href: "#"} Vids
+        %li
+          %form.navbar-form.for-search(action="")
+            .form-group
+              %input.search-query(type="text" placeholder="Search for videos here")
+            %span.form-group-addon(type="submit") Search
+        %li
+          %ul.nav.navbar-nav.navbar-right
+            %li.dropdown
+              %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+                Welcome, user
+                %b.caret
+              %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+                %li
+                  %a(href="#") Account
+                  %a(href="#") Plan and Billing
+                  %a(href="#") Sign Out
