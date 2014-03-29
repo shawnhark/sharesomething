@@ -9,26 +9,26 @@
       %a.navbar-brand{href: root_path} ShareSomething
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li.divider-vertical
-        %li
+        %li.divider-vertical.clearfix
+        %li.col-sm-1
           %a{href: "#"} Words
-        %li
+        %li.col-sm-1
           %a{href: "#"} Pics
-        %li
+        %li.col-sm-1
           %a{href: "#"} Vids
-        %li
+        %li.col-sm-7
           %form.navbar-form.for-search(action="")
             .form-group
-              %input.search-query(type="text" placeholder="Search for videos here")
-            %span.form-group-addon.btn.btn-info(type="text") Search
-
-        %ul.nav.navbar-nav.navbar-right
-          %li.dropdown
-            %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-              Welcome, user
-              %b.caret
-            %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-              %li
-                %a(href="#") Account
-                %a(href="#") Plan and Billing
-                %a(href="#") Sign Out
+              %input.search-query(type="text" placeholder="Search this site...")
+            %span.form-group-addon.btn.btn-info(type="button")
+              %span.glyphicon.glyphicon-search Search
+      %ul.nav.navbar-nav.pull-right
+        %li.dropdown
+          %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+            Welcome, user
+            %b.caret
+          %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+            %li
+              %a(href="#") Account
+              %a(href="#") Plan and Billing
+              %a(href="#") Sign Out
