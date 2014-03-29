@@ -20,15 +20,15 @@
           %form.navbar-form.for-search(action="")
             .form-group
               %input.search-query(type="text" placeholder="Search for videos here")
-            %span.form-group-addon(type="submit") Search
-        %li
-          %ul.nav.navbar-nav.navbar-right
-            %li.dropdown
-              %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-                Welcome, user
-                %b.caret
-              %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-                %li
-                  %a(href="#") Account
-                  %a(href="#") Plan and Billing
-                  %a(href="#") Sign Out
+            %span.form-group-addon.btn.btn-info(type="text") Search
+
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown
+            %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+              Welcome, user
+              %b.caret
+            %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+              %li
+                %a(href="#") Account
+                %a(href="#") Plan and Billing
+                %a(href="#") Sign Out
