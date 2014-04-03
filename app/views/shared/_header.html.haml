@@ -1,21 +1,16 @@
 %nav.navbar.navbar-inverse{role: "navigation"}
   .container-fluid
     .navbar-header
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.navbar-brand{href: root_path} ShareSomething
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+    #top
+      = link_to "ShareSomething", root_path, class: 'brand'
       %ul.nav.navbar-nav
         %li.divider-vertical.clearfix
         %li.col-sm-1
-          %a{href: "#"} Words
+          = link_to "Words", words_path
         %li.col-sm-1
-          %a{href: "#"} Pics
+          = link_to "Pics", pics_path
         %li.col-sm-1
-          %a{href: "#"} Vids
+          = link_to "Vids", vids_path
         %li.col-sm-7
           %form.navbar-form.for-search(action="")
             .form-group
