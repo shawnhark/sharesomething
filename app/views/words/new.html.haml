@@ -1,0 +1,16 @@
+= render 'shared/errors', obj: @word
+= form_for @word do |f|
+  = f.label :title
+  = f.text_field :title, placeholder: "Post title here..."
+  %br/
+  = f.label :web_address
+  = f.text_field :url, placeholder: "Web link here..."
+  %br/
+  = f.label :description
+  = f.text_field :description, placeholder: "Your description/comment goes here..."
+  %br/
+  = f.label "Categories"
+  = f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb|
+    - cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text}
+  %br/
+  = f.submit @word.new_record? ? "Create Post" : "Update Post", class: 'btn btn-info'
