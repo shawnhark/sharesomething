@@ -26,3 +26,29 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+Basic framework:
+  Posts
+    In category (words, pics or vids)
+    Has comments
+    Has votes on posts
+
+Front page
+  carousel of words, picks & vids highlights
+  explain talker
+Main page
+  Jumbotron of "The Talker"
+  All posts, by most popular (greatest difference between upvotes and downvotes)
+Categories
+  default rank by most popular
+  sub options for most votes, most comments, most likes, most dislikes, most recent
+My page
+  Show posts I selected
+  Show posts others selected for me
+  Show all posts made
+  Show all comments made
+Account
+  change password
+  choose time zone
+  follow/unfollow users
