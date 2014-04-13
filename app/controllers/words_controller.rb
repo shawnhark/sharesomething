@@ -5,7 +5,7 @@ class WordsController < ApplicationController
   end
 
   def new
-    @words = Word.new
+    @post = Post.new
   end
 
   private

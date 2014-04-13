@@ -1,11 +1,7 @@
-%article.words
-  This page will show all news story links.
-  %p
-
-
-  %h3 Word posts
+%article.posts_category
+%h3 Posts
 %ul
-  - word_index.each do |post|
+  - @posts.each do |post|
     .container-fluid
       .row-fluid
         .span2
@@ -24,5 +20,3 @@
               = link_to post.title, post_path(post)
             %small
               posted on #{display_datetime(post.created_at)}
-
-  
