@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
   def word_index
-    @word_posts = Category.find_by name: "Words"
+    @word_posts = Post.find_by category: "Words"
   end
 
 end

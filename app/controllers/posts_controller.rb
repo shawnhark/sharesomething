@@ -2,6 +2,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @word_posts = Category.find_by name: "Words"
+    @vid_posts = Category.find_by name: "Vids"
+    @pic_posts = Category.find_by name: "Pics"
   end
 
   def new
