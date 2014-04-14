@@ -1,11 +1,18 @@
-.container
-  .jumbotron.span10.offset1
-    %h1.text-center Coming soon!
-    %p
-    %h3.text-center A new way to see and share news stories.
-    .form-group
-    .text-center
-      %button.btn.btn-default.active{type: "submit"}
-        = link_to "Register Today", register_path 
-.body.offset1        
-  %h4 This website is still under development. Please feel free to check out any of the sections above.
+%article.posts_category
+#toppad
+#welcomebg
+  .container-fluid
+    %br
+    %br
+    .jumbotron.span10.offset1
+      %h1.text-center Coming soon!
+      %br
+      %h3.text-center A new way to see and share news stories.
+      %br
+      .form-group
+      .text-center
+        %button.btn.btn-default.active{type: "submit"}
+          = link_to "Register Today", register_path 
+  .body.offset1        
+    %h4 This website is still under development. Please feel free to check out any of the sections above.
+    %br

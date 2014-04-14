@@ -1,0 +1,12 @@
+%article.posts_category
+#toppad
+#bg
+  %h3= @post.title
+  .container-fluid
+    .row-fluid
+      .span12
+        .well
+          %h4= link_to "#{@post.description}", @post.post_url
+          %small
+            posted on #{display_datetime(@post.created_at)}
+#bottompad

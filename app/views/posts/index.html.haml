@@ -1,6 +1,6 @@
 %article.posts_category
+#toppad
 #bg
-
   %h3 Posts
   %ul
     - @posts.each do |post|
@@ -22,3 +22,4 @@
                 = link_to post.title, post_path(post)
               %small
                 posted on #{display_datetime(post.created_at)}
+#bottompad
