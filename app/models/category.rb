@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+has_many :posts, -> { order("created_at DESC") }
 
   def word_index
     @category = Category.find_by name: "Words"
