@@ -3,28 +3,4 @@
 #bg
   %h2 This page will show all news story links.
   %p
-
-
-  %h3 Word posts
-%ul
-  - @word_posts.each do |post|
-    .container-fluid
-      .row-fluid
-        .span2
-          .well
-            .text-center
-              %h4
-              .btn-toolbar
-                .btn-group
-                  %h5
-                    %i.icon-circle-arrow-up
-                    votes
-                    %i.icon-circle-arrow-down
-        .span10
-          .well
-            %h4
-              = link_to post.title, post_path(post)
-            %small
-              posted on #{display_datetime(post.created_at)}
-
-  
+ 
