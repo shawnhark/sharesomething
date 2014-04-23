@@ -1,10 +1,23 @@
 %article.posts_category
 #toppad
 #bg
-  %h3= @post.title
+  .container.fluid
+    .row
+    %h3= @post.title
+  %ul
   .container-fluid
     .row-fluid
-      .span12
+      .span2
+        .well
+          .text-center
+            %h4
+            .btn-toolbar
+              .btn-group
+                %h5
+                  %i.icon-circle-arrow-up
+                  votes
+                  %i.icon-circle-arrow-down
+      .span9
         .well
           %h4= link_to "#{@post.description}", @post.post_url
           %small

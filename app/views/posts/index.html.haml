@@ -1,7 +1,9 @@
 %article.posts_category
 #toppad
 #bg
-  %h3 Posts
+  .container-fluid
+    .row-fluid
+    %h3 Posts
   %ul
     - @posts.each do |post|
       .container-fluid
@@ -16,7 +18,7 @@
                       %i.icon-circle-arrow-up
                       votes
                       %i.icon-circle-arrow-down
-          .span10
+          .span9
             .well
               %h4
                 = link_to post.title, post_path(post)
