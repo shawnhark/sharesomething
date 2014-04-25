@@ -13,7 +13,11 @@ class CategoriesController < ApplicationController
   end
 
   private
+  def set_category
+    @category = Category.find_by slug: params[:id]
+  end
+  
   def post_params
-    params.require(:post).permit(:namee, :slug)
+    params.require(:post).permit(:name, :slug)
   end
 end
