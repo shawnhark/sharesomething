@@ -3,9 +3,9 @@ Sharesomething::Application.routes.draw do
 
   get 'register', to: 'users#register'
   get 'home', to: 'posts#index'
-  get 'words', to: 'words#index'
-  get 'pics', to: 'pics#index'
-  get 'vids', to: 'vids#index'
+  get 'words', to: 'posts#word_posts'
+  get 'pics', to: 'posts#pic_posts'
+  get 'vids', to: 'posts#vid_posts'
 
   resources :posts
   resources :categories
