@@ -5,23 +5,23 @@
     .row-fluid
     %h3 Word Posts
   %ul
-    - @posts.each do |post|
-      .container-fluid
-        .row-fluid
-          .span2
-            .well
-              .text-center
-                %h4
-                .btn-toolbar
-                  .btn-group
-                    %h5
-                      %i.icon-circle-arrow-up
-                      votes
-                      %i.icon-circle-arrow-down
-          .span9
-            .well
+  - @posts.each do |post|
+    .container-fluid
+      .row-fluid
+        .span2
+          .well
+            .text-center
               %h4
-                = link_to post.title, post_path(post)
-              %small
-                posted on #{display_datetime(post.created_at)}
+              .btn-toolbar
+                .btn-group
+                  %h5
+                    %i.icon-circle-arrow-up
+                    votes
+                    %i.icon-circle-arrow-down
+        .span9
+          .well
+            %h4
+              = link_to post.title, post_path(post)
+            %small
+              posted on #{display_datetime(post.created_at)}
 #bottompad
