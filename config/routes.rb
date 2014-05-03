@@ -9,5 +9,6 @@ Sharesomething::Application.routes.draw do
 
   resources :posts
   resources :categories
+  resources :users
 
 end

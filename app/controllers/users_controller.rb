@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-    if result.successful?
+    if @user.save
       flash[:success] = 'You have now registered successfully. Please log in.'
-      redirect_to sign_in_path
+      redirect_to home_path
     else
-      flash[:error] = result.error_message
+      flash[:error] = 'There was an error. Please check all of your information and try again.'
       render :new
     end
   end
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
 private
 
   def users_params
-    params.require(:user).permit(:full_name, :email, :user_name, :password, :slug, :active, :time_zone, :token, :admin, :customer_token, :premium)
+    params.require(:user).permit(:full_name, :email, :user_name, :password_digest, :slug, :active, :time_zone, :token, :admin, :customer_token, :premium)
   end
 end
