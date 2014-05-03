@@ -1,0 +1,40 @@
+%section.register.container
+#toppad
+#bg
+
+  .container-fluid
+    .row-fluid
+      %h1 Register
+      %br
+      .well
+        = bootstrap_form_for @user, html: { class: "form-horizontal"} do |f|
+          %form.form-horizontal{:role => "form"}
+            %br
+            .form-group
+              %label.col-md-2.control-label
+              .col-lg-7              
+                = f.text_field :full_name, label: "Full Name", class: "span.input-group"
+            .form-group
+              %label.col-md-2.control-label
+              .col-lg-7
+                = f.text_field :user_name, label: "User Name", class: "span.input-group"
+            .form-group
+              %label.col-md-2.control-label
+              .col-lg-7
+                = f.email_field :email, label: "Email Address", class: "span.input-group"
+            .form-group
+              %label.col-md-2.control-label
+              .col-lg-7
+                = f.password_field :password, class: "span.input-group"
+            .form-group
+              %label.col-md-2.control-label
+              .col-lg-7
+                = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones
+                %p
+            .form-group
+              %label.col-md-2.control-label
+              .col-lg-7
+                = f.submit "Complete Free Registration", class: 'btn btn-primary'
+                .row
+            .row
+#bottompad

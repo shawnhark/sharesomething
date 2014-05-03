@@ -7,43 +7,16 @@
       %h1 Register
       %br
       .well
-
-        %form.form-horizontal{role: "form"}
-        .form-group
-          %label.col-md-2.control-label{for: "full_name"} Full Name
-          .col-sm-8
-            %input#inputEmail3.form-control{placeholder: "Enter your full name here...", type: "full_name"}/
-          %br
-          %br
-
-        %form.form-horizontal{role: "form"}
-        .form-group
-          %label.col-md-2.control-label{for: "email"} Email
-          .col-sm-8
-            %input#inputEmail3.form-control{placeholder: "Enter your email address here...", type: "form"}/
-          %br
-          %br
-
-        %form.form-horizontal{role: "form"}
-        .form-group
-          %label.col-md-2.control-label{for: "user_name"} User Name
-          .col-sm-8
-            %input#inputEmail3.form-control{placeholder: "Enter your screen name here...", type: "user_name"}/
-          %br
-          %br
-
-        %form.form-horizontal{role: "form"}
-        .form-group
-          %label.col-sm-2.control-label{for: "password"} Password
-          .col-sm-8
-            %input#inputPassword3.form-control{placeholder: "Choose your password...", type: "password"}/
-          %br
-          %br
-
-        %form.form-horizontal{role: "form"}
-        .form-group
-          .col-sm-offset-2.col-sm-10
-            %button.btn.btn-primary{type: "submit"} Complete Free Registration
-        .row
+        = bootstrap_form_for @user, html: { class: "form-horizontal"} do |f|
+          %form.form-horizontal{role: "form"}
+            .form-group
+              %label.col-md-2.control-label
+              .col-sm-8
+                = f.full_name_field :full_name, label: "Full Name", class: "form.form-inline"
+                = f.email_field :email, label: "Email Address", class: "form.form-inline"
+                = f.user_name_field :user_name, label: "User Name", class: "form.form-inline"
+                = f.password_field :password
+                %button.btn.btn-primary{type: "submit"} Complete Free Registration
+            .row
 
 #bottompad
