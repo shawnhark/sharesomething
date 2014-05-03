@@ -8,14 +8,15 @@ class SessionsController <ApplicationController
     if user && user.authenticate(params[:password])
       if user.active?
         session[:user_id] = user.id
-        redirect_to home_path, notice: "You are now logged in."
+        flash[:info] = "You are now logged in."
+        redirect_to home_path
       else
         flash[:error] = "Your account has been suspended. Please contact customer service."
-        redirect_to sign_in_path
+        redirect_to login_path
       end
     else
       flash[:error] = "Sorry, something is wrong with user name and/or password."
-      redirect_to sign_in_path
+      redirect_to login_path
     end
   end
 

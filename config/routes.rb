@@ -7,6 +7,7 @@ Sharesomething::Application.routes.draw do
   get 'pics', to: 'posts#pic_posts'
   get 'vids', to: 'posts#vid_posts'
   get 'sign_in', to: 'sessions#new'
+  get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
 
   resources :posts
