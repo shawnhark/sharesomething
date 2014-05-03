@@ -6,22 +6,24 @@
       %h1 Sign In
       %br
       .well
-        = form_tag sessions_path, class: 'sign_in' do
-          %fieldset
-            %br
+        = form_tag sessions_path, class: 'form-horizontal' do
+
+          %br
+          %form
             .form-group
               .row
                 %label.col-md-2.control-label
                 .col-lg-7
-                  = label_tag :email, "Email Address"
-                  = email_field_tag :email 
+                  = label_tag :email, "Email"
+                  = email_field_tag :email
             .form-group
               .row
                 %label.col-md-2.control-label
                 .col-lg-7
                   = label_tag :password, "Password"
                   = password_field_tag :password
-          %fieldset.actions.control-group.col-sm-offset-2
-            %input(type="submit" value="Sign in" class="btn btn-primary")
+
+        %fieldset.actions.form-group.col-sm-offset-2
+          %input(type="submit" value="Sign in" class="btn btn-primary")
 
 #bottompad
