@@ -6,9 +6,12 @@ Sharesomething::Application.routes.draw do
   get 'words', to: 'posts#word_posts'
   get 'pics', to: 'posts#pic_posts'
   get 'vids', to: 'posts#vid_posts'
+  get 'sign_in', to: 'sessions#new'
+  get 'logout', to: 'sessions#destroy'
 
   resources :posts
   resources :categories
   resources :users
+  resources :sessions, only: [:create]
 
 end
