@@ -11,7 +11,7 @@ Sharesomething::Application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   resources :posts do
-    resources :comments, only [:create]
+    resources :comments, only: [:create]
   end
 
   resources :categories

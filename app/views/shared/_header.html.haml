@@ -18,14 +18,25 @@
               %span.form-group-addon.btn.btn-info(type="button")
                 %span.glyphicon.glyphicon-search Search
       %ul.nav.navbar-nav.pull-right
-        %li.dropdown
-          %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-            Welcome, guest
-            %b.caret
-          %ul.dropdown-menu.dropdown-menu-right(role="menu" aria-labelledby="dlabel")
-            %li
-              %a(href="#") Account
-              %a(href="#") Settings
-              %a.divider
-              %a(href="#") Sign Out
+        - if logged_in?
+          %li.dropdown
+            %a(href="#" id="dlabel label-default" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+              Welcome, #{current_user.full_name}
+              %b.caret
+            %ul.dropdown-menu(role="menu" aria-labelledby="dlabel label-default")
+              %li
+                %a(href="#") Invite a friend
+                %a(href="#") Account
+                %a(href="#") Plan and Billing
+                = link_to 'Sign Out', logout_path
+        - else
+          %li.dropdown
+            %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
+              Welcome, guest
+              %b.caret
+            %ul.dropdown-menu.dropdown-menu-right(role="menu" aria-labelledby="dlabel")
+              %li
+                = link_to 'Register', register_path
+                %a.divider
+                = link_to 'Sign In', login_path
 #toppad

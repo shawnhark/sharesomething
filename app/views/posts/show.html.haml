@@ -1,4 +1,4 @@
-%article.posts_category
+%article.posts
 #bg
   .container.fluid
     .row
@@ -21,8 +21,20 @@
           %h4= link_to "#{@post.description}", @post.post_url
           %small
             posted on #{display_datetime(@post.created_at)}
+  %section.comments.container-fluid
+    .row
+      .col-sm-10.col-sm-offset-1
+        %header
+          %h3 User Comments = 0
 
+        %ul
+          - @comments.each do |comment|
+            %article.review
+              %li.row
+                .col-md-8
+                  - if @comments.count.to_i = 0
+                    %p
+                  - else
+                    %p= comment.content
 
-
-            
 #bottompad
