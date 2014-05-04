@@ -10,7 +10,10 @@ Sharesomething::Application.routes.draw do
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
 
-  resources :posts
+  resources :posts do
+    resources :comments, only [:create]
+  end
+
   resources :categories
   resources :users
   resources :sessions, only: [:create]

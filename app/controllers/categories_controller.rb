@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
   end
 
 
-  def post_params
-    params.require(:post).permit(:name, :slug)
+  def categories_params
+    params.require(:category).permit(:name, :slug)
   end
 end

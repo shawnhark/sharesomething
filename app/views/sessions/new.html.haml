@@ -14,14 +14,14 @@
               .row
                 %label.col-md-2.control-label
                 .col-lg-7
-                  = label_tag :email, "Email"
+                  = label_tag :email
                   = email_field_tag :email
             .form-group
               .row
                 %label.col-md-2.control-label
                 .col-lg-7
-                  = label_tag :password, "Password"
-                  = password_field_tag :password
+                  = label_tag :password
+                  = email_field_tag :password
 
         %fieldset.actions.form-group.col-sm-offset-2
           %input(type="submit" value="Sign in" class="btn btn-primary")
