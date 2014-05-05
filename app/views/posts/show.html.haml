@@ -2,7 +2,7 @@
 #bg
   .container.fluid
     .row
-    %h3= @post.title
+    %h2= @post.title
   %ul
   .container-fluid
     .row-fluid
@@ -21,20 +21,31 @@
           %h4= link_to "#{@post.description}", @post.post_url
           %small
             posted on #{display_datetime(@post.created_at)}
-  %section.comments.container-fluid
-    .row
-      .col-sm-10.col-sm-offset-1
-        %header
-          %h3 User Comments = 0
+    %section.comments.container-fluid
+      .row-fluid
+        .span2
+          %h4 User Comments:
 
-        %ul
-          - @comments.each do |comment|
-            %article.review
-              %li.row
-                .col-md-8
-                  - if @comments.count.to_i = 0
-                    %p
-                  - else
-                    %p= comment.content
+    = form_for [@post, Comment.new] do |f|
+      .row-fluid
+      .span2
+      .span9
+        .form-group
+          %label Add your comment:
+          .row.offset-2
+            = f.text_area :content, rows: 6, class: 'col-md-10', placeholder: 'Add your comment here...'
+        %fieldset.form-group.actions.clearfix
+          %input(type="submit" value="Submit" class="btn.btn-info")
+          = link_to "Cancel", @post
+
+      %ul
+        - @comments.each do |comment|
+          %article.review
+            %li.row
+              .col-md-8
+                - if @comments.count.to_i = 0
+                  %p
+                - else
+                  %p= comment.content
 
 #bottompad

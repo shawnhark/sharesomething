@@ -21,6 +21,10 @@ class PostsController < ApplicationController
     @word_posts = Category.find_by name: "Words"
     @posts = @word_posts.posts
     @comments = @post.comments
+    respond_to do |format|
+      format.html { @comment = Comment.new }
+      format.json {render json: @post}
+    end
   end
 
   def pic_posts

@@ -7,15 +7,17 @@ Sharesomething::Application.routes.draw do
   get 'pics', to: 'posts#pic_posts'
   get 'vids', to: 'posts#vid_posts'
   get 'sign_in', to: 'sessions#new'
+  post 'sign_in', to: 'sessions#create'
   get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
 
-  resources :posts do
+  resources :posts, except:[:destroy] do
     resources :comments, only: [:create]
   end
 
   resources :categories
-  resources :users
+  resources :users, except:[:destroy]
   resources :sessions, only: [:create]
 
 end
