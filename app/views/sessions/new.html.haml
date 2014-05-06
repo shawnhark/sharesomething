@@ -6,24 +6,16 @@
       %h1 Sign In
       %br
       .well
-        = bootstrap_form_for sessions_path, class: 'form-horizontal' do |f|
-          %form.form-horizontal{:role => "form"}
-            %br
-            .form-group
-              %label.col-md-2.control-label
-              .col-lg-7
-                = f.email_field :email, class: "span.input-group"
-                %p
-            .form-group
-              %label.col-md-2.control-label
-              .col-lg-7
-                = f.password_field :password, class: "span.input-group"
-                %p
-            .form-group
-              %label.col-md-2.control-label
-              .col-lg-7
-                = f.submit "Sign in", class: 'btn btn-primary'
-                .row
-            .row
+        = form_tag '/login', class: 'form-horizontal' do
+          %br
+            = label_tag :email
+            = email_field_tag :email
+          %br
+
+            = label_tag :password
+            = password_field_tag :password
+          %br
+
+            = submit_tag "login"
 
 #bottompad

@@ -18,6 +18,6 @@ Sharesomething::Application.routes.draw do
 
   resources :categories
   resources :users, except:[:destroy]
-  resources :sessions, only: [:create]
+  resources :sessions, only: [:create, :new]
 
 end
