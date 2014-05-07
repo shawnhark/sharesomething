@@ -6,16 +6,13 @@
       %h1 Sign In
       %br
       .well
-        = form_tag '/login', class: 'form-horizontal' do
+        = bootstrap_form_for login_path, class: 'span.input-group' do
           %br
             = label_tag :email
             = email_field_tag :email
           %br
-
             = label_tag :password
             = password_field_tag :password
           %br
-
-            = submit_tag "login"
-
+            = submit_tag "login", class: 'btn btn-primary'
 #bottompad
