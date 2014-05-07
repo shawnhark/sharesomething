@@ -29,14 +29,15 @@
     = form_for [@post, Comment.new] do |f|
       .row-fluid
       .span2
-      .span9
-        .form-group
-          %label Add your comment:
-          .row.offset-2
-            = f.text_area :content, rows: 6, class: 'col-md-10', placeholder: 'Add your comment here...'
-        %fieldset.form-group.actions.clearfix
-          %input(type="submit" value="Submit" class="btn.btn-info")
-          = link_to "Cancel", @post
+      - if logged_in?
+        .span9
+          .form-group
+            .row.offset-2
+              %h4 Add your comment:
+              = f.text_area :content, rows: 6, class: 'col-md-10', placeholder: 'Type your comment here...'
+          %fieldset.form-group.actions.clearfix
+            %input(type="submit" value="Submit" class="btn btn-info")
+            = link_to "Cancel",  @post, :class => "btn"
 
       %ul
         - @comments.each do |comment|
