@@ -21,32 +21,38 @@
           %h4= link_to "#{@post.description}", @post.post_url
           %small
             posted on #{display_datetime(@post.created_at)}
-    %section.comments.container-fluid
-      .row-fluid
-        .span2
-          %h4 User Comments:
 
-    = form_for [@post, Comment.new] do |f|
-      .row-fluid
-      .span2
-      - if logged_in?
-        .span9
-          .form-group
-            .row.offset-2
-              %h4 Add your comment:
-              = f.text_area :content, rows: 6, class: 'col-md-10', placeholder: 'Type your comment here...'
-          %fieldset.form-group.actions.clearfix
-            %input(type="submit" value="Submit" class="btn btn-info")
-            = link_to "Cancel",  @post, :class => "btn"
+    %section.comments
+      .container-fluid
+        .row-fluid
+          .span2
+            %h4 User Comments:
 
-      %ul
-        - @comments.each do |comment|
-          %article.review
-            %li.row
-              .col-md-8
-                - if @comments.count.to_i = 0
-                  %p
-                - else
-                  %p= comment.content
+      = form_for [@post, Comment.new] do |f|
+        .row-fluid
+
+        - if logged_in?   
+          .span2
+            .well
+              .text-center
+                %input(type="submit" value="Submit" class="btn btn-info")
+                %p
+                = link_to "Cancel",  @post, :class => "btn"
+          .span9
+            .form-group
+              .row.offset-2
+                %h4 Add your comment:
+                = f.text_area :content, rows: 4, class: 'col-md-10', placeholder: 'Type your comment here...'
+            %fieldset.form-group.actions.clearfix
+
+
+    %article.review.clearfix
+      - @comments.each do |comment|
+        .row-fluid
+          .span2
+          .span9
+            .well
+              %p= comment.content
+              %small posted on #{display_datetime(comment.created_at)}
 
 #bottompad
