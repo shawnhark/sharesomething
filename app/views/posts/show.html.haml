@@ -1,6 +1,6 @@
 %article.posts
 #bg
-  .container.fluid
+  .container
     .row
     %h2= @post.title
   %ul
@@ -20,36 +20,39 @@
         .well
           %h4= link_to "#{@post.description}", @post.post_url
           %small
-            posted on #{display_datetime(@post.created_at)}
+            posted on #{display_datetime(@post.created_at)} 
 
-    %section.comments
+  %section.comments
+  %ul
+
+  %ul
+  = form_for [@post, Comment.new] do |f|
+    .row-fluid
+    - if logged_in?
+      .container-fluid
+        .row.offset2
+          %h4 Add your comment:
       .container-fluid
         .row-fluid
-          .span2
-            %h4 User Comments:
-
-      = form_for [@post, Comment.new] do |f|
-        .row-fluid
-
-        - if logged_in?   
           .span2
             .well
               .text-center
                 %input(type="submit" value="Submit" class="btn btn-info")
                 %p
                 = link_to "Cancel",  @post, :class => "btn"
-          .span9
-            .form-group
-              .row.offset-2
-                %h4 Add your comment:
-                = f.text_area :content, rows: 4, class: 'col-md-10', placeholder: 'Type your comment here...'
-            %fieldset.form-group.actions.clearfix
+          .span9.offset1
+            = f.text_area :content, rows: 5, class: 'col-md-10', placeholder: 'Type your comment here...'
 
+  .container-fluid
+    .row-fluid
+      .span2
+        %h4 User Comments:
 
     %article.review.clearfix
       - @comments.each do |comment|
         .row-fluid
           .span2
+            %br
           .span9
             .well
               %p= comment.content
