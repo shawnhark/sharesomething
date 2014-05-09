@@ -1,6 +1,6 @@
 %article.posts
 #bg
-  .container
+  .container.fluid
     .row
     %h2= @post.title
   %ul
@@ -12,10 +12,11 @@
             %h4
             .btn-toolbar
               .btn-group
-                %h5
-                  %i.icon-circle-arrow-up
-                  votes
-                  %i.icon-circle-arrow-down
+                .text-center
+                  %h5
+                    %i.icon-circle-arrow-up
+                    votes
+                    %i.icon-circle-arrow-down
       .span9
         .well
           %h4= link_to "#{@post.description}", @post.post_url
@@ -56,6 +57,6 @@
           .span9
             .well
               %p= comment.content
-              %small posted on #{display_datetime(comment.created_at)}
+              %small posted by #{comment.creator.username} on #{display_datetime(comment.created_at)}
 
 #bottompad
