@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   validates :user_name, presence: true, uniqueness: true
   after_validation :generate_slug
   has_secure_password validations: false
+  has_many :comments, -> { order("created_at DESC") }
 
   def deactivate!
     update_column(:active, false)
