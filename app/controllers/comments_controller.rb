@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment= Comment.new(comments_params)
     @comment.post = @post
+    @comment.creator = current_user
 
     if @comment.save
       flash[:success] = "Your review was created."

@@ -57,6 +57,6 @@
           .span9
             .well
               %p= comment.content
-              %small posted by #{comment.creator.username} on #{display_datetime(comment.created_at)}
+              %small posted by #{comment.creator.user_name} on #{display_datetime(comment.created_at)}
 
 #bottompad
