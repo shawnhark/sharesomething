@@ -17,6 +17,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def create
+    @post = Post.new
+    @post.creator = current_user
+
+    if @post.save
+      flash[:notice] = "You created a new post!"
+      redirect_to posts_path
+    else
+      render :new
+    end
+  end
+
+
   def word_posts
     @word_posts = Category.find_by name: "Words"
     @posts = @word_posts.posts
@@ -34,7 +47,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :post_url, :description, :image, :category_id)
+    params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)
   end
 
 

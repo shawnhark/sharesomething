@@ -22,5 +22,5 @@
               %h4
                 = link_to post.title, post_path(post)
               %small
-                posted on #{display_datetime(post.created_at)}
+                posted by #{post.creator.user_name} on #{display_datetime(post.created_at)}
 #bottompad
