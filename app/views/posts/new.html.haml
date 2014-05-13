@@ -1,0 +1,25 @@
+%article.new_posts
+#bg
+  %ul
+  = form_for [@post, Post.new] do |f|
+    .row-fluid
+    - if logged_in?
+      .container-fluid
+        .row.offset2
+          %h4 Add your post:
+      .container-fluid
+        .row-fluid
+          .span2
+            .well
+              .text-center
+                %input(type="submit" value="Submit" class="btn btn-info")
+                %p
+                = link_to "Cancel",  @post, :class => "btn"
+          .span9.offset1
+            = f.text_area :title, class: 'col-md-10', placeholder: 'Type your title here...'
+            = f.text_area :post_url,  class: 'col-md-10', placeholder: 'Type the page link here...'
+            = f.text_area :description, rows: 5, class: 'col-md-10', placeholder: 'Type your description here...'
+            %br/
+
+
+#bottompad
