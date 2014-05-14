@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
+    @post = Post.new
   end
 
   def show
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
+    @post = Post.new(post_params)
     @post.creator = current_user
 
     if @post.save
