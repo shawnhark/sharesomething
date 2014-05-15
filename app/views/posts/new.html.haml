@@ -16,10 +16,11 @@
                 %input(type="submit" value="Submit" class="btn btn-info")
                 %p
                 = link_to "Cancel",  @posts, :class => "btn"
-          .span9.offset1
+          .span9
             = f.text_area :title, class: 'col-md-10', placeholder: 'Type your title here...'
             = f.text_area :post_url,  class: 'col-md-10', placeholder: 'Type the page link here...'
             = f.text_area :description, rows: 5, class: 'col-md-10', placeholder: 'Type your description here...'
-            %br/
+            %p
+            = f.select :category_id, options_for_select(Category.all.map {|category| [category.name, category.id]})
 
 #bottompad
