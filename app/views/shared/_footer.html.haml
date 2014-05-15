@@ -1,5 +1,14 @@
 %nav.navbar.navbar-fixed-bottom
-  .container-fluid 
-    = link_to "© 2014 Shawn Harkness / ShareSomething", root_path
-    %ul.nav.navbar-nav.pull-right
-      %a{href: "#top"} Top of page
+  .container-fluid
+    .navbar
+    #footer
+      %ul.nav.navbar-nav
+        %li.inline
+          = link_to "© 2014 Shawn Harkness / ShareSomething", root_path
+      %ul.nav.navbar-nav
+        %li.inline
+        - if logged_in?
+          = link_to "Add a new post", new_posts_path, :class => "btn btn-info"
+      %ul.nav.navbar-nav.pull-right
+        %li.inline
+          %a{href: "#top"} Top of page
