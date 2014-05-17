@@ -11,7 +11,7 @@
           .text-center
             %h4
             .btn-toolbar
-              .btn-group
+              .btn-group.text-center
                 .text-center
                   %h5
                     %i.icon-circle-arrow-up
@@ -57,6 +57,7 @@
           .span9
             .well
               %p= comment.content
+              %hr.divider
               %small posted by #{comment.creator.user_name} on #{display_datetime(comment.created_at)}
 
 #bottompad
