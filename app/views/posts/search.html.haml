@@ -1,8 +1,28 @@
 %article.posts_search
 #bg
-  %h3 Search Results
-  .row
-    - @searchresults.each do |title|
-      .col-md-2
-        = link_to post_path(title)
-        %h2 Your results:
+  .container-fluid
+    .row-fluid
+    %h3 Search Results
+  %ul
+    - @searchresults.each do |post|
+      .container-fluid
+        .row-fluid    
+          .span2
+          .span9
+            .well
+              %h4
+                = link_to post_path(post), nil do
+                  #{post.title}
+              %small posted by #{post.creator.user_name} on #{display_datetime(post.created_at)} 
+
+  - if @searchresults == []
+    .container-fluid
+      .row-fluid    
+        .span2
+        .span9
+          .well
+            %h4 Sorry, there were no results for your search term.
+
+  %br
+
+#bottompad

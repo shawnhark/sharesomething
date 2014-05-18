@@ -17,6 +17,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def search
+    @searchresults = Post.search_by_title(params[:search_term])
+  end
+
   private
 
   def comments_params

@@ -3,18 +3,18 @@
     .navbar-header
     #top
       = link_to "ShareSomething", home_path, class: 'brand'
-      %ul.nav.navbar-nav
+      %ul.nav.nav-navbar.list-inline
         %li.divider-vertical.clearfix
-        %li.col-sm-1
+        %li.col-xsm-2
           = link_to "Words", words_path
-        %li.col-sm-1
+        %li.col-xsm-2
           = link_to "Pics", pics_path
-        %li.col-sm-1
+        %li.col-xsm-2
           = link_to "Vids", vids_path
-        %li.col-sm-4
-          = form_tag search_posts_path, class: "form.col-md-5.navbar-form" do
-            %input.form-control(name="search_term" type="text" placeholder="Search for videos here")
-              %button.btn.btn-info(type="submit") Search
+        %li.col-xsm-6.form-inline
+          = form_tag search_posts_path, class: "form.col-md-6.navbar-form" do
+            %input.form-control(name="search_term" type="search" placeholder="Search posts here...")
+            %button.btn.btn-info(type="submit") Search
 
       %ul.nav.navbar-nav.pull-right
         - if logged_in?

@@ -1,56 +1,57 @@
 %article.posts
 #bg
-  .container.fluid
-    .row
-    %h2= @post.title
-  %ul
   .container-fluid
     .row-fluid
-      .span2
-        .well
-          .text-center
-            %h4
-            .btn-toolbar
-              .btn-group
-                .text-center
-                  %h5
-                    %i.icon-circle-arrow-up
-                    votes
-                    %i.icon-circle-arrow-down
-      .span9
-        .well
-          %h4= link_to "#{@post.description}", @post.post_url
-          %small
-            posted by #{@post.creator.user_name} on #{display_datetime(@post.created_at)} 
-
-  %section.comments
+    %h3= @post.title
   %ul
+    .container-fluid
+      .row-fluid
+        .span2
+          .well
+            .text-center
+              %h4
+              .btn-toolbar
+                .btn-group
+                  .text-center
+                    %h5
+                      %i.icon-circle-arrow-up
+                      votes
+                      %i.icon-circle-arrow-down
+        .span9
+          .well
+            %h4= link_to "#{@post.description}", @post.post_url
+            %small
+              posted by #{@post.creator.user_name} on #{display_datetime(@post.created_at)} 
 
-  %ul
-  = form_for [@post, Comment.new] do |f|
-    .row-fluid
-    - if logged_in?
-      .container-fluid
-        .row.offset2
+  %section.add_comments
+  - if logged_in?
+    .container-fluid
+      .row-fluid
+        .span3
           %h4 Add your comment:
-      .container-fluid
-        .row-fluid
-          .span2
-            .well
-              .text-center
-                %input(type="submit" value="Submit" class="btn btn-info")
-                %p
-                = link_to "Cancel",  @post, :class => "btn"
-          .span9.offset1
-            = f.text_area :content, rows: 5, class: 'col-md-10', placeholder: 'Type your comment here...'
+    %ul
+      = form_for [@post, Comment.new] do |f|
+        %ul
+        .container-fluid
+          .row-fluid
+            .span2
+              .well
+                .text-center
+                  %input(type="submit" value="Submit" class="btn btn-info")
+                  %p
+                  = link_to "Cancel",  @post, :class => "btn"
+            .span9
+              = f.text_area :content, rows: 5, class: 'col-sm-12', placeholder: 'Type your comment here...'
 
+  %section.user_comments
   .container-fluid
     .row-fluid
-      .span2
+      .span3
         %h4 User Comments:
-
-    %article.review.clearfix
-      - @comments.each do |comment|
+  %ul
+    - @comments.each do |comment|
+      %ul
+      .container-fluid
         .row-fluid
           .span2
             %br
@@ -59,5 +60,6 @@
               %p= comment.content
               %hr.divider
               %small posted by #{comment.creator.user_name} on #{display_datetime(comment.created_at)}
+    %br
 
 #bottompad

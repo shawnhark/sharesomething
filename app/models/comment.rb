@@ -9,4 +9,9 @@ class Comment < ActiveRecord::Base
   def comment_id
     comment.id
   end
+
+  def self.search_by_title(search_term)
+    return [] if search_term.blank?
+    where("cont LIKE?", "%#{search_term}%").order("created_at DESC")
+  end
 end
