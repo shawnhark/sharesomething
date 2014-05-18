@@ -11,12 +11,11 @@
           = link_to "Pics", pics_path
         %li.col-sm-1
           = link_to "Vids", vids_path
-        %li.col-sm-7
-          %form.navbar-form.for-search(action="")
-            .form-group
-              %input.search-query(type="text" placeholder="Search this site...")
-              %span.form-group-addon.btn.btn-info(type="button")
-                %span.glyphicon.glyphicon-search Search
+        %li.col-sm-4
+          = form_tag search_posts_path, class: "form.col-md-5.navbar-form" do
+            %input.form-control(name="search_term" type="text" placeholder="Search for videos here")
+              %button.btn.btn-info(type="submit") Search
+
       %ul.nav.navbar-nav.pull-right
         - if logged_in?
           %li.dropdown

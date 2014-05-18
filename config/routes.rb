@@ -14,6 +14,9 @@ Sharesomething::Application.routes.draw do
   get 'new_posts', to: 'posts#new'
 
   resources :posts, except:[:destroy] do
+    collection do
+      post :search, to: "posts#search"
+    end
     resources :comments, only: [:create]
   end
 
