@@ -1,8 +1,11 @@
 class Post < ActiveRecord::Base
 belongs_to :category
 belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
-has_many :comments
+has_many :comments, foreign_key: 'post_id'
 
+  def post_id
+    comment.post_id
+  end
 
   def self.search_by_title(search_term)
     return [] if search_term.blank?

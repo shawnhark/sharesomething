@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :post
+  belongs_to :post, foreign_key: :id
   belongs_to :creator, class_name: 'User', foreign_key: :user_id
 
   validates_presence_of :content
@@ -10,8 +10,12 @@ class Comment < ActiveRecord::Base
     comment.id
   end
 
+  def post_id
+    comment.post_id
+  end
+
   def self.search_by_title(search_term)
     return [] if search_term.blank?
-    where("cont LIKE?", "%#{search_term}%").order("created_at DESC")
+    where("content LIKE?", "%#{search_term}%").order("created_at DESC")
   end
 end

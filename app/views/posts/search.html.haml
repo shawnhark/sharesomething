@@ -4,7 +4,10 @@
     .row-fluid
     %h3 Search Results
   %ul
-    - @searchresults.each do |post|
+  .container-fluid
+    .row-fluid
+    %h4 Posts:
+    - @post_search_results.each do |post|
       .container-fluid
         .row-fluid    
           .span2
@@ -15,7 +18,20 @@
                   #{post.title}
               %small posted by #{post.creator.user_name} on #{display_datetime(post.created_at)} 
 
-  - if @searchresults == []
+  %ul
+  .container-fluid
+    .row-fluid
+    %h4 Comments:
+    - @comment_search_results.each do |comment|
+      .container-fluid
+        .row-fluid    
+          .span2
+          .span9
+            .well
+              %h4 #{comment.content}   
+              %small posted by #{comment.creator.user_name} on #{display_datetime(comment.created_at)} 
+
+  - if @post_search_results == [] && @comment_search_results == []
     .container-fluid
       .row-fluid    
         .span2

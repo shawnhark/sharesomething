@@ -18,9 +18,19 @@ class CommentsController < ApplicationController
   end
 
   def search
-    @searchresults = Post.search_by_title(params[:search_term])
+    @searchresults = Comment.search_by_title(params[:search_term])
   end
 
+
+  def show
+    @comments = Comment.find(params[:id])
+    @post = Comment.find(params[:post_id])
+    respond_to do |format|
+      format.html { @comment = Comment.new }
+      format.json {render json: @post}
+    end
+  end
+  
   private
 
   def comments_params

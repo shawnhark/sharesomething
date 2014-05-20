@@ -18,7 +18,13 @@ class PostsController < ApplicationController
   end
 
   def search
-    @searchresults = Post.search_by_title(params[:search_term])
+    @post_search_results = Post.search_by_title(params[:search_term])
+    @comment_search_results = Comment.search_by_title(params[:search_term])
+  end
+
+  def comment_parent
+    @post_id = Comment.post_id
+    @post = Post.find(params[@post_id])
   end
 
   def create
@@ -33,6 +39,10 @@ class PostsController < ApplicationController
     end
   end
 
+  private
+  def post_params
+    params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)
+  end
 
   def word_posts
     @word_posts = Category.find_by name: "Words"
@@ -48,12 +58,5 @@ class PostsController < ApplicationController
     @vid_posts = Category.find_by name: "Vids"
     @posts = @vid_posts.posts
   end
-
-  private
-  def post_params
-    params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)
-  end
-
-
 
 end

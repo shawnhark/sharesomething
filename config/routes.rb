@@ -15,9 +15,12 @@ Sharesomething::Application.routes.draw do
 
   resources :posts, except:[:destroy] do
     collection do
-      post :search, to: "posts#search"
+      post :search, to: 'posts#search'
     end
     resources :comments, only: [:create]
+      collection do
+        post :search, to: 'posts#search'
+      end
   end
 
   resources :categories
