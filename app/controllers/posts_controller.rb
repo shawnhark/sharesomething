@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
   def comment_parent
     @post_id = Comment.post_id
-    @post = Post.find(params[@post_id])
+    @post = Post.find(params[:post_id])
   end
 
   def create

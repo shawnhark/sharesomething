@@ -19,6 +19,8 @@ class CommentsController < ApplicationController
 
   def search
     @searchresults = Comment.search_by_title(params[:search_term])
+    @comment = Comment.find(params[:id])
+    @post = Comment.find(params[:post_id])
   end
 
 
