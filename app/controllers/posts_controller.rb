@@ -39,6 +39,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote
+    @vote = Vote.new(voteable: @post, creator: current_user, vote: params[:vote])
+    @vote.save
+
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "Your vote was counted."
+        redirect_to :back
+      end
+      format.js
+    end
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)
