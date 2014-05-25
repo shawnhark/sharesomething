@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
     @comment= Comment.new(comments_params)
     @comment.post = @post
     @comment.creator = current_user
-
     if @comment.save
       flash[:success] = "Your review was created."
       redirect_to @post
@@ -20,7 +19,7 @@ class CommentsController < ApplicationController
   def search
     @searchresults = Comment.search_by_title(params[:search_term])
     @comment = Comment.find(params[:id])
-    @post = Comment.find(params[:post_id])
+    set_post
   end
 
 
@@ -34,9 +33,12 @@ class CommentsController < ApplicationController
   end
   
   private
-
   def comments_params
     params.require(:comment).permit(:content, :user_id, :post_id)
   end
 
+  def set_post
+    @post = Post.find_by(slug: params[:id])
+  end
+  
 end

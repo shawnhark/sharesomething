@@ -17,10 +17,17 @@ Sharesomething::Application.routes.draw do
     collection do
       post :search, to: 'posts#search'
     end
-    resources :comments, only: [:create]
+    member do
+      post 'vote'      
+    end
+    resources :comments, only: [:create] do
       collection do
         post :search, to: 'posts#search'
       end
+      member do
+        post 'vote'      
+      end
+    end
   end
 
   resources :categories

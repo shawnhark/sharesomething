@@ -29,7 +29,8 @@
           .span9
             .well
               %h4 
-                #{comment.content}
+                = link_to post_path(comment.post), nil do
+                  #{comment.content}
               %small posted by #{comment.creator.user_name} on #{display_datetime(comment.created_at)} 
 
   - if @post_search_results == [] && @comment_search_results == []

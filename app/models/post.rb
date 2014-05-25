@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
-belongs_to :category
-belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
-has_many :comments
+
+  belongs_to :category
+  belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
+  has_many :comments
 
   def post_id
     comment.post_id
@@ -12,4 +13,5 @@ has_many :comments
     where("title LIKE?", "%#{search_term}%").order("created_at DESC")
     where("description LIKE?", "%#{search_term}%").order("created_at DESC")
   end
+
 end
