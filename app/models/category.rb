@@ -14,7 +14,7 @@ class Category < ActiveRecord::Base
     @category = Category.find_by name: "Vids"
   end
 
-  def recent_videos
+  def recent_posts
     posts.first(10)
   end
 

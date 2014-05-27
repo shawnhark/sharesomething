@@ -1,5 +1,18 @@
 %article.posts_index
 #bg
+
+  - unless logged_in?
+    .container-fluid
+      %br
+      %br
+      .jumbotron.span10.offset1
+        %h2 Hello and Welcome!
+        %p
+        Thank you for checking us out. Please feel free to enjoy the posts. In order to comment or vote on posts, you must register.
+        %p
+        .text-center
+          = link_to "Click here to join", register_path,  class: 'btn btn-primary btn-large'
+
   .container-fluid
     .row-fluid
     %h3 All Posts
@@ -11,12 +24,21 @@
             .well
               .text-center
                 %h4
+                  %span{:id => "post_#{post.id}_votes"}= post.total_votes
+              .text-center
                 .btn-toolbar
                   .btn-group
-                    %h5
-                      %i.icon-circle-arrow-up
-                      votes
-                      %i.icon-circle-arrow-down
+                    - if logged_in?
+                      = link_to vote_post_path(post, vote: true), method: 'post', remote: true, class: 'btn btn-success btn-small', id: "Post_#{post.id}_upvote" do
+                        %i.icon-circle-arrow-up
+                      = link_to vote_post_path(post, vote: false), method: 'post', remote: true, class: 'btn btn-danger btn-small', id: "Post_#{post.id}_downvote" do
+                        %i.icon-circle-arrow-down
+                    - else
+                      %h5
+                        %i.icon-circle-arrow-up
+                        votes
+                        %i.icon-circle-arrow-down
+
           .span9
             .well
               %h4
@@ -24,3 +46,4 @@
               %small
                 posted by #{post.creator.user_name} on #{display_datetime(post.created_at)}
     %p
+#bottompad
