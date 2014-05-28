@@ -59,7 +59,7 @@ class PostsController < ApplicationController
 
   def word_posts
     @word_posts = Category.find_by name: "Words"
-    @posts = @word_posts.posts
+    @posts = @word_posts.post
   end
 
   def pic_posts
