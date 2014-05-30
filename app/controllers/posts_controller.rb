@@ -52,14 +52,9 @@ class PostsController < ApplicationController
     end
   end
 
-  private
-  def post_params
-    params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)
-  end
-
   def word_posts
     @word_posts = Category.find_by name: "Words"
-    @posts = @word_posts.post
+    @posts = @word_posts.posts
   end
 
   def pic_posts
@@ -72,4 +67,9 @@ class PostsController < ApplicationController
     @posts = @vid_posts.posts
   end
 
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)
+  end
 end

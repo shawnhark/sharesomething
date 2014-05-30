@@ -14,20 +14,4 @@ class Post < ActiveRecord::Base
     where("description LIKE?", "%#{search_term}%").order("created_at DESC")
   end
 
-
-  def word_posts
-    @word_posts = Category.find_by name: "Words"
-    @posts = @word_posts.posts
-  end
-
-  def pic_posts
-    @pic_posts = Category.find_by name: "Pics"
-    @posts = @pic_posts.posts
-  end
-
-  def vid_posts
-    @vid_posts = Category.find_by name: "Vids"
-    @posts = @vid_posts.posts
-  end
-
 end
