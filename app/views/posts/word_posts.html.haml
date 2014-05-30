@@ -1,5 +1,19 @@
 %article.word_posts
 #bg
+
+  - unless logged_in?
+    .container-fluid
+      %br
+      %br
+      .hero-unit.span10.offset1
+        %h2 Hello and Welcome!
+        %p
+        Thank you for checking us out. Please feel free to enjoy the posts. In order to comment or vote on posts, you must register.
+        %p
+        .text-center
+          %br
+          = link_to "Click here to join", register_path,  class: 'btn btn-primary btn-large'
+
   .container-fluid
     .row-fluid
     %h3 Word Posts
