@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   end
 
   def vote
-    @vote = Vote.new(voteable: @post, creator: current_user, vote: params[:vote])
+    @vote = Vote.new(voteable_type: "Post", creator: current_user, vote: params[:vote])
     @vote.save
 
     respond_to do |format|
