@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :vote]
 
   def index
     @posts = Post.all
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
   end
 
   def vote
-    @vote = Vote.new(voteable_type: "Post", creator: current_user, vote: params[:vote])
+    @vote = Vote.new(voteable_type: 'Post', voteable_id: @post.id, creator: current_user, vote: params[:vote])
     @vote.save
 
     respond_to do |format|
@@ -71,5 +72,13 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)
+  end
+
+  def vote_params
+    params.require(:vote).permit(:vote, :user_id, :voteable_id, :voteable_type)
+  end
+
+  def set_post
+    @post = Post.find_by(params[:id])
   end
 end
