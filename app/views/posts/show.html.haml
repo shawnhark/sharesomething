@@ -10,13 +10,20 @@
           .well
             .text-center
               %h4
-              .btn-toolbar
-                .btn-group
-                  .text-center
-                    %h5
-                      %i.icon-circle-arrow-up
-                      votes
-                      %i.icon-circle-arrow-down
+                .btn-toolbar
+                  .btn-group
+                  %span
+                    - if logged_in?
+                      = link_to vote_post_path(@post, vote: true), method: 'post', remote: true, class: 'btn btn-success btn-default', id: "Post_#{@post.id}_upvote" do
+                        %i.icon-circle-arrow-up
+                      %i.btn.btn-default{:id => "post_#{@post.id}_votes"}= @post.total_votes
+                      = link_to vote_post_path(@post, vote: false), method: 'post', remote: true, class: 'btn btn-danger btn-default', id: "Post_#{@post.id}_downvote" do
+                        %i.icon-circle-arrow-down
+                    - else
+                      %span
+                        %i.btn.btn-small{:id => "post_#{@post.id}_votes"}= @post.total_votes
+                      %h5
+                        votes
         .span9
           .well
             %h4= link_to "#{@post.description}", @post.post_url
