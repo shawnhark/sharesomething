@@ -68,7 +68,6 @@ class PostsController < ApplicationController
     @posts = @vid_posts.posts
   end
 
-
   private
   def post_params
     params.require(:post).permit(:title, :post_url, :description, :image, :category_id, :user_id)

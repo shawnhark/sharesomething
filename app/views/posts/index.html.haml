@@ -8,11 +8,12 @@
       .hero-unit.span10.offset1
         %h2 Hello and Welcome!
         %p
-        Thank you for checking us out. Please feel free to enjoy the posts. In order to comment or vote on posts, you must register.
+        Thank you for checking us out. Please feel free to enjoy the posts. In order to comment or vote on posts, you must register and log in first.
         %p
         .text-center
           %br
           = link_to "Click here to join", register_path,  class: 'btn btn-primary btn-large'
+          = link_to "Click here to log in", login_path,  class: 'btn btn-success btn-large'
 
   .container-fluid
     .row-fluid
