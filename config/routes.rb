@@ -12,6 +12,7 @@ Sharesomething::Application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   get 'new_posts', to: 'posts#new'
+  get 'about', to: 'pages#about'
 
   resources :posts, except:[:destroy] do
     collection do
